@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title><% if (page.title.length > 0) { %><%= page.title %> - <% } %>osu!skins</title>
+		<link href="//fonts.googleapis.com/css?family=Exo+2:300,300italic,200,400,400italic,500,500italic,700,700italic,900" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="/css/osu.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" integrity="sha384-fj9YEHKNa/e0CNquG4NcocjoyMATYo1k2Ff5wGB42C/9AwOlJjDoySPtNJalccfI" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha384-tSi+YsgNwyohDGfW/VhY51IK3RKAPYDcj1sNXJ16oRAyDP++K0NCzSCUW78EMFmf" crossorigin="anonymous"></script>
+		<script src="/js/osuskins.js" type="text/javascript"></script>
+	</head>
+	<body class="osu-layout osu-layout--body community section action-forum-forums-index">
+		<div id="overlay" style="display: none;"></div>
+		<div class="blackout" style="display: none;"></div>
+		<nav class="osu-layout__section osu-layout__section--minimum no-print">
+			<div id="nav-background" class="hidden-xs">
+				<div id="nav-triangles-1" class="nav-triangles"></div>
+				<div id="nav-triangles-2" class="nav-triangles"></div>
+				<div id="nav-triangles-3" class="nav-triangles"></div>
+				<div id="nav-gradient-overlay"></div>
+			</div>
+			<div class="hidden-xs osu-layout__row" id="nav-sm">
+				<a class="flex-none nav-logo" href="/"></a>
+				<div id="nav-links">
+					<ul id="nav-menu" class="js-menu osu-nav__menu">
+						<li class="community active">
+							<a class="osu-nav__link" href="https://osu.ppy.sh" target="_blank">osu! main site</a>
+						</li>
+						<li>
+							<a class="osu-nav__link yellow-normal" href="https://osu.ppy.sh/p/support" target="_blank">support osu!skins</a>
+						</li>
+						<li>
+							<a class="osu-nav__link" href="https://github.com/failedxyz/osuskins" target="_blank"><i class="fa fa-github"></i></a>
+						</li>
+					</ul>
+					<div id="nav-page-title">
+						<span class="sub1">osu! skins</span>
+					</div>
+				</div>
+				<div class="flex-none nav-user-bar-container">
+					<% if (page.logged_in == true) { %>
+						<div id="nav-user-bar">
+							<a href="/logout" title="Logout"><%- page.user_info.username %></a>
+						</div>
+						<a class="avatar avatar--nav avatar--guest js-nav-avatar" href="/logout" style="background-image:url(https://gravatar.com/avatar/<%- page.user_info.email_md5 %>);" title="Guest" data-toggle="modal" data-target="#user-dropdown-modal" title="Logout"></a>
+					<% } else { %>
+						<div id="nav-user-bar">
+							<a href="/login">Guest</a>
+						</div>
+						<a class="avatar avatar--nav avatar--guest js-nav-avatar" href="/login" title="Guest" data-toggle="modal" data-target="#user-dropdown-modal"></a>
+					<% } %>
+				</div>
+			</div>
+		</nav>
